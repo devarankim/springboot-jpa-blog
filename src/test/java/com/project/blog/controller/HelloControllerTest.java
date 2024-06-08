@@ -14,15 +14,15 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 public class HelloControllerTest {
 
     @Autowired
-    private MockMvc mockMVC;
+    private MockMvc mockMVC; //스프링 MVC테스트의 시작점을 의미. 가짜객체임
 
     @Test
     public void hello() throws Exception {
 
         String hello = "hello";
 
-        mockMVC.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string(hello));
+        mockMVC.perform(get("/hello")) //GET요청
+                .andExpect(status().isOk()) //200상태인지 체크
+                .andExpect(content().string(hello)); //BODY에 내용이 HELLO가 맞는지 검증
     }
 }

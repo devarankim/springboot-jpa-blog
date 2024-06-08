@@ -1,9 +1,6 @@
 package com.project.etctest;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 //사용자가 요청 -> 응답(Html)(jsp..)이면 @Controller
 //사용자가 요청 -> 응답(Data)
@@ -14,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HttpControllerTest {
 
-    @GetMappint("/http/lombok")
+    @GetMapping("/http/lombok")
     public String lombokTest(){
-        Member m = Member.builder().username("kimaran").password("1234").email("ssar@nate.com").build();
+        //Member m = Member.().username("kimaran").password("1234").email("ssar@nate.com").build();
         //builder패턴은 순서지킬필요가 없다.
-        return "lombok test 완료"
+        return "lombok test 완료";
     }
     //인터넷 요청은(브라우저)는 get만 가능하다.
     @GetMapping
@@ -27,9 +24,10 @@ public class HttpControllerTest {
         return null;
     }
 
-    @PostMapper("/http/post")
+    @PostMapping("/http/post")
     public String postTest(@RequestBody Member m){ //application/json형식으로 보내게 되면 알아서 객체에 파싱해서 넣어줌. MessageConverter(부트)다
-        return "post요청: " + m.getId() + "," + m.getUsername();
+       // return "post요청: " + m.getId() + "," + m.getUsername();
+        return "post요청: ";
     }
 }
 
